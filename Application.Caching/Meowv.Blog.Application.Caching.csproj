@@ -4,4 +4,14 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Abp" Version="5.9.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Volo.Abp.Caching">
+      <HintPath>..\src\Meowv.Blog.HttpApi.Hosting\bin\Debug\netcoreapp3.1\Volo.Abp.Caching.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
 </Project>
