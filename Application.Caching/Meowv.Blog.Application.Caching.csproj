@@ -1,17 +1,18 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Abp" Version="5.9.0" />
+    <PackageReference Include="Microsoft.Extensions.Caching.Redis" Version="2.2.0" />
+    <PackageReference Include="Volo.Abp.Caching" Version="2.8.0" />
   </ItemGroup>
 
   <ItemGroup>
-    <Reference Include="Volo.Abp.Caching">
-      <HintPath>..\src\Meowv.Blog.HttpApi.Hosting\bin\Debug\netcoreapp3.1\Volo.Abp.Caching.dll</HintPath>
-    </Reference>
+    <ProjectReference Include="..\Meowv.Blog.ToolKits\Meowv.Blog.ToolKits.csproj" />
+    <ProjectReference Include="..\src\Meowv.Blog.Application.Contracts\Meowv.Blog.Application.Contracts.csproj" />
+    <ProjectReference Include="..\src\Meowv.Blog.Domain\Meowv.Blog.Domain.csproj" />
   </ItemGroup>
 
 </Project>

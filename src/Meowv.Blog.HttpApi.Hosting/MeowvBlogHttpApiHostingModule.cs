@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Meowv.Blog.Swagger;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.Hosting;
 using Volo.Abp;
@@ -14,7 +15,9 @@ namespace Meowv.Blog.Web
     [DependsOn(
         typeof(AbpAspNetCoreModule),
         typeof(AbpAutofacModule),
-        typeof(MeowvBlogHttpApiModule)
+        typeof(MeowvBlogHttpApiModule),
+        typeof(MeowvBlogSwaggerModule)
+          //typeof(MeowvBlogFrameworkCoreModule)
         )]
     public class MeowvBlogHttpApiHostingModule:AbpModule
     {
