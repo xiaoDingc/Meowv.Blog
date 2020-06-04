@@ -49,7 +49,7 @@ namespace Meowv.Blog
                         opt.UseSqlite();
                         break;
                     default:
-                        opt.UseMySQL();
+                        opt.UseSqlServer();
                         break;
                 }
             });

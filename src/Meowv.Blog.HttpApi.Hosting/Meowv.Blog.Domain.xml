@@ -104,6 +104,20 @@
             标签Id
             </summary>
         </member>
+        <member name="M:Meowv.Blog.Blog.Repositories.IPostTagRepository.BulkInsertAsync(System.Collections.Generic.IEnumerable{Meowv.Blog.Blog.PostTag})">
+            <summary>
+            批量插入
+            </summary>
+            <param name="postTags"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Meowv.Blog.Blog.Repositories.ITagRepository.BulkInsertAsync(System.Collections.Generic.IEnumerable{Meowv.Blog.Blog.Tag})">
+            <summary>
+            批量插入
+            </summary>
+            <param name="tags"></param>
+            <returns></returns>
+        </member>
         <member name="T:Meowv.Blog.Blog.Tag">
             <summary>
             Tag

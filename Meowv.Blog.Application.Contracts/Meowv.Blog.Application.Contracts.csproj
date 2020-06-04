@@ -4,4 +4,9 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>..\Meowv.Blog.HttpApi.Hosting\Meowv.Blog.Application.Contracts.xml</DocumentationFile>
+    <OutputPath>G:\C#开发\ABPProject\abpBlog\Meowv.Blog\src\Meowv.Blog.HttpApi.Hosting\</OutputPath>
+  </PropertyGroup>
+
 </Project>

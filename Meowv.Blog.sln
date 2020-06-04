@@ -36,7 +36,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "solution-items", "solution-
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Meowv.Blog.Domain.Shared", "Meowv.Blog.Domain.Shared\Meowv.Blog.Domain.Shared.csproj", "{231FABC6-8698-4FE8-96A5-71A477EC8E22}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Meowv.Blog.Application.Contracts", "Meowv.Blog.Application.Contracts\Meowv.Blog.Application.Contracts.csproj", "{AA3EC2FE-76D2-477C-9380-A7B21A4A6471}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Meowv.Blog.Application.Contracts", "Meowv.Blog.Application.Contracts\Meowv.Blog.Application.Contracts.csproj", "{AA3EC2FE-76D2-477C-9380-A7B21A4A6471}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
