@@ -11,7 +11,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Meowv.Blog.ToolKits\Meowv.Blog.ToolKits.csproj" />
-    <ProjectReference Include="..\src\Meowv.Blog.Application.Contracts\Meowv.Blog.Application.Contracts.csproj" />
     <ProjectReference Include="..\src\Meowv.Blog.Domain\Meowv.Blog.Domain.csproj" />
   </ItemGroup>
 

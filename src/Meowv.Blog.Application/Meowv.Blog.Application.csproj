@@ -9,8 +9,6 @@
   <ItemGroup>
     <PackageReference Include="Volo.Abp.Identity.Application" Version="2.8.0" />
     <ProjectReference Include="..\..\Application.Caching\Meowv.Blog.Application.Caching.csproj" />
-
-    <ProjectReference Include="..\Meowv.Blog.Application.Contracts\Meowv.Blog.Application.Contracts.csproj" />
   </ItemGroup>
 
 
