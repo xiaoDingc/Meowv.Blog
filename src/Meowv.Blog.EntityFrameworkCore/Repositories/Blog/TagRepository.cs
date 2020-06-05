@@ -18,8 +18,6 @@ namespace Meowv.Blog.Repositories.Blog
 
         public async Task BulkInsertAsync(IEnumerable<Tag> tags)
         {
-            //  await DbContext.Set<Tag>().AddRangeAsync(tags);
-            //await DbContext.SaveChangesAsync();
             await DbContext.Set<Tag>().AddRangeAsync(tags);
             await DbContext.SaveChangesAsync();
         }
