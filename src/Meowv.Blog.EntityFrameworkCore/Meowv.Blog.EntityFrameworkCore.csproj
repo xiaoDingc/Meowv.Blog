@@ -15,7 +15,7 @@
   </ItemGroup>
   
   <ItemGroup>
-    <ProjectReference Include="..\..\Meowv.Blog.Domain.Shared\Meowv.Blog.Domain.Shared.csproj" />
+    <ProjectReference Include="..\Meowv.Blog.Domain\Meowv.Blog.Domain.csproj" />
   </ItemGroup>
 
 </Project>

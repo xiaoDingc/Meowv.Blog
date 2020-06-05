@@ -8,8 +8,4 @@
     <PackageReference Include="Volo.Abp.Identity.Domain.Shared" Version="2.8.0" />
   </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\src\Meowv.Blog.Domain\Meowv.Blog.Domain.csproj" />
-  </ItemGroup>
-
 </Project>
