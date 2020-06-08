@@ -29,5 +29,7 @@ namespace Meowv.Blog
         /// ConnectionStrings
         /// </summary>
         public static string ConnectionStrings => _config.GetConnectionString(EnableDb);
+
+        public static string ApiVersion =>_config["ApiVersion"];
     }
 }

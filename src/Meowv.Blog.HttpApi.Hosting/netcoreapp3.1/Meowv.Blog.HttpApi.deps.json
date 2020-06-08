@@ -25,6 +25,7 @@
       "Meowv.Blog.HttpApi/1.0.0": {
         "dependencies": {
           "Meowv.Blog.Application": "1.0.0",
+          "Meowv.Blog.ToolKits": "1.0.0",
           "Volo.Abp.Identity.HttpApi": "2.8.0",
           "Microsoft.AspNetCore.Antiforgery": "3.1.0.0",
           "Microsoft.AspNetCore.Authentication.Abstractions": "3.1.0.0",
@@ -1955,21 +1956,6 @@
           "System.Xml.ReaderWriter": "4.3.0"
         }
       },
-      "Volo.Abp.Account.Application.Contracts/2.8.0": {
-        "dependencies": {
-          "ConfigureAwait.Fody": "3.3.1",
-          "Volo.Abp.Identity.Application.Contracts": "2.8.0"
-        },
-        "runtime": {
-          "lib/netstandard2.0/Volo.Abp.Account.Application.Contracts.dll": {
-            "assemblyVersion": "2.8.0.0",
-            "fileVersion": "2.8.0.0"
-          }
-        },
-        "compile": {
-          "lib/netstandard2.0/Volo.Abp.Account.Application.Contracts.dll": {}
-        }
-      },
       "Volo.Abp.ApiVersioning.Abstractions/2.8.0": {
         "dependencies": {
           "ConfigureAwait.Fody": "3.3.1",
@@ -2244,37 +2230,6 @@
         },
         "compile": {
           "lib/netstandard2.0/Volo.Abp.EventBus.dll": {}
-        }
-      },
-      "Volo.Abp.FeatureManagement.Application.Contracts/2.8.0": {
-        "dependencies": {
-          "ConfigureAwait.Fody": "3.3.1",
-          "Volo.Abp.Ddd.Application": "2.8.0",
-          "Volo.Abp.FeatureManagement.Domain.Shared": "2.8.0"
-        },
-        "runtime": {
-          "lib/netstandard2.0/Volo.Abp.FeatureManagement.Application.Contracts.dll": {
-            "assemblyVersion": "2.8.0.0",
-            "fileVersion": "2.8.0.0"
-          }
-        },
-        "compile": {
-          "lib/netstandard2.0/Volo.Abp.FeatureManagement.Application.Contracts.dll": {}
-        }
-      },
-      "Volo.Abp.FeatureManagement.Domain.Shared/2.8.0": {
-        "dependencies": {
-          "ConfigureAwait.Fody": "3.3.1",
-          "Volo.Abp.Validation": "2.8.0"
-        },
-        "runtime": {
-          "lib/netstandard2.0/Volo.Abp.FeatureManagement.Domain.Shared.dll": {
-            "assemblyVersion": "2.8.0.0",
-            "fileVersion": "2.8.0.0"
-          }
-        },
-        "compile": {
-          "lib/netstandard2.0/Volo.Abp.FeatureManagement.Domain.Shared.dll": {}
         }
       },
       "Volo.Abp.Features/2.8.0": {
@@ -2655,37 +2610,6 @@
           "lib/netstandard2.0/Volo.Abp.Settings.dll": {}
         }
       },
-      "Volo.Abp.TenantManagement.Application.Contracts/2.8.0": {
-        "dependencies": {
-          "ConfigureAwait.Fody": "3.3.1",
-          "Volo.Abp.Ddd.Application": "2.8.0",
-          "Volo.Abp.TenantManagement.Domain.Shared": "2.8.0"
-        },
-        "runtime": {
-          "lib/netstandard2.0/Volo.Abp.TenantManagement.Application.Contracts.dll": {
-            "assemblyVersion": "2.8.0.0",
-            "fileVersion": "2.8.0.0"
-          }
-        },
-        "compile": {
-          "lib/netstandard2.0/Volo.Abp.TenantManagement.Application.Contracts.dll": {}
-        }
-      },
-      "Volo.Abp.TenantManagement.Domain.Shared/2.8.0": {
-        "dependencies": {
-          "ConfigureAwait.Fody": "3.3.1",
-          "Volo.Abp.Validation": "2.8.0"
-        },
-        "runtime": {
-          "lib/netstandard2.0/Volo.Abp.TenantManagement.Domain.Shared.dll": {
-            "assemblyVersion": "2.8.0.0",
-            "fileVersion": "2.8.0.0"
-          }
-        },
-        "compile": {
-          "lib/netstandard2.0/Volo.Abp.TenantManagement.Domain.Shared.dll": {}
-        }
-      },
       "Volo.Abp.Threading/2.8.0": {
         "dependencies": {
           "ConfigureAwait.Fody": "3.3.1",
@@ -2846,6 +2770,7 @@
         "dependencies": {
           "Meowv.Blog.Application.Caching": "1.0.0",
           "Meowv.Blog.Application.Contracts": "1.0.0",
+          "Meowv.Blog.Domain.Shared": "1.0.0",
           "Volo.Abp.Identity.Application": "2.8.0"
         },
         "runtime": {
@@ -2857,7 +2782,6 @@
       },
       "Meowv.Blog.Application.Caching/1.0.0": {
         "dependencies": {
-          "Meowv.Blog.Application.Contracts": "1.0.0",
           "Meowv.Blog.Domain": "1.0.0",
           "Meowv.Blog.ToolKits": "1.0.0",
           "Microsoft.Extensions.Caching.Redis": "2.2.0",
@@ -2871,14 +2795,6 @@
         }
       },
       "Meowv.Blog.Application.Contracts/1.0.0": {
-        "dependencies": {
-          "Volo.Abp.Account.Application.Contracts": "2.8.0",
-          "Volo.Abp.FeatureManagement.Application.Contracts": "2.8.0",
-          "Volo.Abp.Identity.Application.Contracts": "2.8.0",
-          "Volo.Abp.ObjectExtending": "2.8.0",
-          "Volo.Abp.PermissionManagement.Application.Contracts": "2.8.0",
-          "Volo.Abp.TenantManagement.Application.Contracts": "2.8.0"
-        },
         "runtime": {
           "Meowv.Blog.Application.Contracts.dll": {}
         },
@@ -2888,6 +2804,7 @@
       },
       "Meowv.Blog.Domain/1.0.0": {
         "dependencies": {
+          "Meowv.Blog.Domain.Shared": "1.0.0",
           "Volo.Abp.Identity.Domain": "2.8.0"
         },
         "runtime": {
@@ -2895,6 +2812,17 @@
         },
         "compile": {
           "Meowv.Blog.Domain.dll": {}
+        }
+      },
+      "Meowv.Blog.Domain.Shared/1.0.0": {
+        "dependencies": {
+          "Volo.Abp.Identity.Domain.Shared": "2.8.0"
+        },
+        "runtime": {
+          "Meowv.Blog.Domain.Shared.dll": {}
+        },
+        "compile": {
+          "Meowv.Blog.Domain.Shared.dll": {}
         }
       },
       "Meowv.Blog.ToolKits/1.0.0": {
@@ -5454,13 +5382,6 @@
       "path": "system.xml.xdocument/4.3.0",
       "hashPath": "system.xml.xdocument.4.3.0.nupkg.sha512"
     },
-    "Volo.Abp.Account.Application.Contracts/2.8.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-bgx9UITcpszrYW453ECf+9T34VU1UZLTH+CQvLN5pQQdm9d76I0wLxoT4iniXzTRfynmlCIl10VC9q5ahEVQDQ==",
-      "path": "volo.abp.account.application.contracts/2.8.0",
-      "hashPath": "volo.abp.account.application.contracts.2.8.0.nupkg.sha512"
-    },
     "Volo.Abp.ApiVersioning.Abstractions/2.8.0": {
       "type": "package",
       "serviceable": true,
@@ -5558,20 +5479,6 @@
       "sha512": "sha512-WPkyyu4rYa+vzqLNJSPJFpPwtKJPdr6nO+1H7ZDKY1pWu+nsIHPr9eLUJZ6VN3FbnUF5Oye/Q8BJvOhVQXQtFw==",
       "path": "volo.abp.eventbus/2.8.0",
       "hashPath": "volo.abp.eventbus.2.8.0.nupkg.sha512"
-    },
-    "Volo.Abp.FeatureManagement.Application.Contracts/2.8.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-JfiQNWbqwlRps0AXF9Haer6g6TeH2oayA1f/VzmDTyNY/+jgjOvuI5nBpef2codHv+2KduhKqJkTzNLKh+1nlA==",
-      "path": "volo.abp.featuremanagement.application.contracts/2.8.0",
-      "hashPath": "volo.abp.featuremanagement.application.contracts.2.8.0.nupkg.sha512"
-    },
-    "Volo.Abp.FeatureManagement.Domain.Shared/2.8.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-QQyFQmkL035EjW0sI11+hXu/w2uafydPCbqIP2rvW8Xk+Nf3myFeO0A+IvugNZ74mGpsq18B2nYVM5n2XIpssQ==",
-      "path": "volo.abp.featuremanagement.domain.shared/2.8.0",
-      "hashPath": "volo.abp.featuremanagement.domain.shared.2.8.0.nupkg.sha512"
     },
     "Volo.Abp.Features/2.8.0": {
       "type": "package",
@@ -5734,20 +5641,6 @@
       "path": "volo.abp.settings/2.8.0",
       "hashPath": "volo.abp.settings.2.8.0.nupkg.sha512"
     },
-    "Volo.Abp.TenantManagement.Application.Contracts/2.8.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-ExjS+h82UebwGZjl3INMpEq3geXuYQsKOSZorlr8ln5EnMSNskdBNQwRU8vfbuISEe2ZKv2mxckX+wKgG7d0dw==",
-      "path": "volo.abp.tenantmanagement.application.contracts/2.8.0",
-      "hashPath": "volo.abp.tenantmanagement.application.contracts.2.8.0.nupkg.sha512"
-    },
-    "Volo.Abp.TenantManagement.Domain.Shared/2.8.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-r1MFX9x6ttaolJwcVeb3FT/qVw4lZP3zENkZwxfpHVFPgR3rCVfdcqhCy736wvtJyxn+N823RsvSyTJd4I4sfw==",
-      "path": "volo.abp.tenantmanagement.domain.shared/2.8.0",
-      "hashPath": "volo.abp.tenantmanagement.domain.shared.2.8.0.nupkg.sha512"
-    },
     "Volo.Abp.Threading/2.8.0": {
       "type": "package",
       "serviceable": true,
@@ -5834,6 +5727,11 @@
       "sha512": ""
     },
     "Meowv.Blog.Domain/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Meowv.Blog.Domain.Shared/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

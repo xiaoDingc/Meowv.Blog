@@ -8,6 +8,7 @@
     ".NETCoreApp,Version=v3.1": {
       "Meowv.Blog.Domain/1.0.0": {
         "dependencies": {
+          "Meowv.Blog.Domain.Shared": "1.0.0",
           "Volo.Abp.Identity.Domain": "2.8.0"
         },
         "runtime": {
@@ -943,6 +944,14 @@
             "fileVersion": "2.8.0.0"
           }
         }
+      },
+      "Meowv.Blog.Domain.Shared/1.0.0": {
+        "dependencies": {
+          "Volo.Abp.Identity.Domain.Shared": "2.8.0"
+        },
+        "runtime": {
+          "Meowv.Blog.Domain.Shared.dll": {}
+        }
       }
     }
   },
@@ -1574,6 +1583,11 @@
       "sha512": "sha512-mH8SFg8dIf2jxXfhfcEkT+T8o9GslQNz4aRUV7j9TUIObfMTVz5BeirIjkmw/d/nT5iKxvrhFh4DARClPrQJXg==",
       "path": "volo.abp.virtualfilesystem/2.8.0",
       "hashPath": "volo.abp.virtualfilesystem.2.8.0.nupkg.sha512"
+    },
+    "Meowv.Blog.Domain.Shared/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
     }
   }
 }

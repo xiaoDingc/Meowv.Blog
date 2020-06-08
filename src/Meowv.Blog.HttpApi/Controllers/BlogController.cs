@@ -5,11 +5,13 @@ using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 using Meowv.Blog.ToolKits.Base;
 using Volo.Abp.AspNetCore.Mvc;
+using Meowv.Blog.Domain.Shared;
 
 namespace Meowv.Blog.HttpApi.Controllers
 {
     [ApiController]
     [Route("[controller]")]
+    [ApiExplorerSettings(GroupName =Grouping.GroupName_v1)]
     public class BlogController : AbpController
     {
         private readonly IBlogService _blogService;
