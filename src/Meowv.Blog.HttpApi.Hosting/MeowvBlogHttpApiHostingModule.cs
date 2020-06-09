@@ -63,19 +63,22 @@ namespace Meowv.Blog.Web
                 app.UseDeveloperExceptionPage();
             }
 
-             //身份验证
+            
+
+            app.UseRouting();
+
+            //身份验证
             app.UseAuthentication();
 
             //授权
             app.UseAuthorization();
 
-            app.UseRouting();
-
-          
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
             });
+
+           
         }
     }
 }
