@@ -19,6 +19,11 @@
             ConnectionStrings
             </summary>
         </member>
+        <member name="T:Meowv.Blog.AppSettings.GitHub">
+            <summary>
+            GitHub
+            </summary>
+        </member>
         <member name="T:Meowv.Blog.Blog.Category">
             <summary>
             Category
@@ -131,6 +136,46 @@
         <member name="P:Meowv.Blog.Blog.Tag.DisplayName">
             <summary>
             展示名称
+            </summary>
+        </member>
+        <member name="F:Meowv.Blog.Configurations.GitHubConfig.API_Authorize">
+            <summary>
+            Get请求,跳转GitHub登录界面，获取用户授权，得到code
+            </summary>
+        </member>
+        <member name="F:Meowv.Blog.Configurations.GitHubConfig.API_AcessToken">
+            <summary>
+             POST请求，根据code得到access_token
+            </summary>
+        </member>
+        <member name="F:Meowv.Blog.Configurations.GitHubConfig.API_User">
+            <summary>
+             GET请求，根据access_token得到用户信息
+            </summary>
+        </member>
+        <member name="P:Meowv.Blog.Configurations.GitHubConfig.Id">
+            <summary>
+            Github ID
+            </summary>
+        </member>
+        <member name="F:Meowv.Blog.Configurations.GitHubConfig.Client_ID">
+            <summary>
+            Client ID
+            </summary>
+        </member>
+        <member name="F:Meowv.Blog.Configurations.GitHubConfig.Client_Secret">
+            <summary>
+            Client Secret
+            </summary>
+        </member>
+        <member name="F:Meowv.Blog.Configurations.GitHubConfig.Redirect_Uri">
+            <summary>
+            Authorization callback URL
+            </summary>
+        </member>
+        <member name="F:Meowv.Blog.Configurations.GitHubConfig.ApplicationName">
+            <summary>
+            Application name
             </summary>
         </member>
     </members>
