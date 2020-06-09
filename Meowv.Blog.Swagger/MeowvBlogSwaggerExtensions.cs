@@ -110,7 +110,7 @@ namespace Meowv.Blog.Swagger
                 //路由前缀设置为空
                 option.RoutePrefix = string.Empty;
                 // API页面Title
-                option.DocumentTitle = "😍接口文档 - 阿星Plus⭐⭐⭐";
+                option.DocumentTitle = "😍接口文档";
 
             });
         }
