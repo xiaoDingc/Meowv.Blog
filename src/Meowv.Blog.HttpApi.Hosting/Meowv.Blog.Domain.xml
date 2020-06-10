@@ -4,26 +4,6 @@
         <name>Meowv.Blog.Domain</name>
     </assembly>
     <members>
-        <member name="F:Meowv.Blog.AppSettings._config">
-            <summary>
-            配置文件的根节点
-            </summary>
-        </member>
-        <member name="P:Meowv.Blog.AppSettings.EnableDb">
-            <summary>
-            EnableDb
-            </summary>
-        </member>
-        <member name="P:Meowv.Blog.AppSettings.ConnectionStrings">
-            <summary>
-            ConnectionStrings
-            </summary>
-        </member>
-        <member name="T:Meowv.Blog.AppSettings.GitHub">
-            <summary>
-            GitHub
-            </summary>
-        </member>
         <member name="T:Meowv.Blog.Blog.Category">
             <summary>
             Category
@@ -138,42 +118,62 @@
             展示名称
             </summary>
         </member>
-        <member name="F:Meowv.Blog.Configurations.GitHubConfig.API_Authorize">
+        <member name="F:Meowv.Blog.Domain.Configurations.AppSettings._config">
+            <summary>
+            配置文件的根节点
+            </summary>
+        </member>
+        <member name="P:Meowv.Blog.Domain.Configurations.AppSettings.EnableDb">
+            <summary>
+            EnableDb
+            </summary>
+        </member>
+        <member name="P:Meowv.Blog.Domain.Configurations.AppSettings.ConnectionStrings">
+            <summary>
+            ConnectionStrings
+            </summary>
+        </member>
+        <member name="T:Meowv.Blog.Domain.Configurations.AppSettings.GitHub">
+            <summary>
+            GitHub
+            </summary>
+        </member>
+        <member name="F:Meowv.Blog.Domain.Configurations.GitHubConfig.API_Authorize">
             <summary>
             Get请求,跳转GitHub登录界面，获取用户授权，得到code
             </summary>
         </member>
-        <member name="F:Meowv.Blog.Configurations.GitHubConfig.API_AcessToken">
+        <member name="F:Meowv.Blog.Domain.Configurations.GitHubConfig.API_AccessToken">
             <summary>
              POST请求，根据code得到access_token
             </summary>
         </member>
-        <member name="F:Meowv.Blog.Configurations.GitHubConfig.API_User">
+        <member name="F:Meowv.Blog.Domain.Configurations.GitHubConfig.API_User">
             <summary>
              GET请求，根据access_token得到用户信息
             </summary>
         </member>
-        <member name="P:Meowv.Blog.Configurations.GitHubConfig.Id">
+        <member name="F:Meowv.Blog.Domain.Configurations.GitHubConfig.UserId">
             <summary>
             Github ID
             </summary>
         </member>
-        <member name="F:Meowv.Blog.Configurations.GitHubConfig.Client_ID">
+        <member name="F:Meowv.Blog.Domain.Configurations.GitHubConfig.Client_ID">
             <summary>
             Client ID
             </summary>
         </member>
-        <member name="F:Meowv.Blog.Configurations.GitHubConfig.Client_Secret">
+        <member name="F:Meowv.Blog.Domain.Configurations.GitHubConfig.Client_Secret">
             <summary>
             Client Secret
             </summary>
         </member>
-        <member name="F:Meowv.Blog.Configurations.GitHubConfig.Redirect_Uri">
+        <member name="F:Meowv.Blog.Domain.Configurations.GitHubConfig.Redirect_Uri">
             <summary>
             Authorization callback URL
             </summary>
         </member>
-        <member name="F:Meowv.Blog.Configurations.GitHubConfig.ApplicationName">
+        <member name="F:Meowv.Blog.Domain.Configurations.GitHubConfig.ApplicationName">
             <summary>
             Application name
             </summary>

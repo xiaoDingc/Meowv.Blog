@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 using Meowv.Blog.ToolKits.Base;
 using Volo.Abp.AspNetCore.Mvc;
-using Meowv.Blog.Domain.Shared;
+using static Meowv.Blog.Domain.Shared.MeowvBlogConsts;
 
 namespace Meowv.Blog.HttpApi.Controllers
 {

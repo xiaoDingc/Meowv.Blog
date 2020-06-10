@@ -1,10 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Text;
 using Microsoft.Extensions.Configuration;
 
-namespace Meowv.Blog
+namespace Meowv.Blog.Domain.Configurations
 {
     public class AppSettings
     {

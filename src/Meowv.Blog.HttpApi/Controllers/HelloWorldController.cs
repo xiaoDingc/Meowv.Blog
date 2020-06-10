@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Meowv.Blog.Domain.Shared;
-using Meowv.Blog.HelloWorld;
+﻿using Meowv.Blog.HelloWorld;
 using Microsoft.AspNetCore.Mvc;
 using Volo.Abp.AspNetCore.Mvc;
+using static Meowv.Blog.Domain.Shared.MeowvBlogConsts;
 
 namespace Meowv.Blog.HttpApi.Controllers
 {

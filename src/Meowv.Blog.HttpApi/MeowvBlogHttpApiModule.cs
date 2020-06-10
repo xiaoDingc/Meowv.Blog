@@ -2,7 +2,7 @@
 using Volo.Abp.Identity;
 using Volo.Abp.Modularity;
 
-namespace Meowv.Blog
+namespace Meowv.Blog.HttpApi
 {
     [DependsOn(
         typeof(AbpIdentityHttpApiModule),
@@ -10,6 +10,6 @@ namespace Meowv.Blog
     )]
     public class MeowvBlogHttpApiModule : AbpModule
     {
-        
+
     }
 }

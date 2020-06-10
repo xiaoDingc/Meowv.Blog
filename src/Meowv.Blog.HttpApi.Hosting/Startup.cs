@@ -1,5 +1,4 @@
-﻿using Meowv.Blog.Web;
-using Microsoft.AspNetCore.Builder;
+﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Meowv.Blog.HttpApi.Hosting

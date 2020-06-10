@@ -1,17 +1,15 @@
-﻿using Meowv.Blog.Configurations;
+﻿using Meowv.Blog.Domain.Configurations;
 using Meowv.Blog.ToolKits.Base;
 using Meowv.Blog.ToolKits.GitHub;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Meowv.Blog.Application.Authorize.Impl
 {
-    public class AuthorizeService : IAuthorizeService
+    public class AuthorizeService :MeowvBlogApplicationServiceBase, IAuthorizeService
     {
         private readonly IHttpClientFactory _httpClient;
 
@@ -41,7 +39,7 @@ namespace Meowv.Blog.Application.Authorize.Impl
 
             using var client=_httpClient.CreateClient();
 
-            var httpResponse = await client.PostAsync(GitHubConfig.API_AcessToken, content);
+            var httpResponse = await client.PostAsync(GitHubConfig.API_AccessToken, content);
 
             var response=await httpResponse.Content.ReadAsStringAsync();
 

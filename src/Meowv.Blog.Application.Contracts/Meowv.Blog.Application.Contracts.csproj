@@ -1,24 +1,12 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
-  <Import Project="..\..\common.props" />
-
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
-    <RootNamespace>Meowv.Blog</RootNamespace>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <DocumentationFile>..\Meowv.Blog.HttpApi.Hosting\Meowv.Blog.Application.Contracts.xml</DocumentationFile>
-    <OutputPath>G:\C#learn\myabp\Blog\src\Meowv.Blog.HttpApi.Hosting\</OutputPath>
+    <OutputPath>G:\C#开发\ABPProject\abpBlog\Meowv.Blog\src\Meowv.Blog.HttpApi.Hosting\</OutputPath>
   </PropertyGroup>
-
-  <ItemGroup>
-    <PackageReference Include="Volo.Abp.ObjectExtending" Version="2.8.0" />
-    <PackageReference Include="Volo.Abp.Account.Application.Contracts" Version="2.8.0" />
-    <PackageReference Include="Volo.Abp.Identity.Application.Contracts" Version="2.8.0" />
-    <PackageReference Include="Volo.Abp.PermissionManagement.Application.Contracts" Version="2.8.0" />
-    <PackageReference Include="Volo.Abp.TenantManagement.Application.Contracts" Version="2.8.0" />
-    <PackageReference Include="Volo.Abp.FeatureManagement.Application.Contracts" Version="2.8.0" />
-  </ItemGroup>
 
 </Project>

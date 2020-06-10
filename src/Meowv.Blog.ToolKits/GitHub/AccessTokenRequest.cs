@@ -1,11 +1,8 @@
-﻿using Meowv.Blog.Configurations;
-using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using Meowv.Blog.Domain.Configurations;
 
 namespace Meowv.Blog.ToolKits.GitHub
 {
-  public  class AccessTokenRequest
+    public  class AccessTokenRequest
     {
         /// <summary>
         /// Client ID

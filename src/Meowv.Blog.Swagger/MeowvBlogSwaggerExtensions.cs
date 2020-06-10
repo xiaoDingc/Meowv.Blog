@@ -1,4 +1,4 @@
-﻿using Meowv.Blog.Domain.Shared;
+﻿using Meowv.Blog.Domain.Configurations;
 using Meowv.Blog.Swagger.Filters;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
@@ -7,11 +7,11 @@ using Swashbuckle.AspNetCore.Filters;
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Text;
+using static Meowv.Blog.Domain.Shared.MeowvBlogConsts;
 
 namespace Meowv.Blog.Swagger
 {
-   public static class MeowvBlogSwaggerExtensions
+    public static class MeowvBlogSwaggerExtensions
     {
         public static string description="接口描述";
         public static string version=AppSettings.ApiVersion;
@@ -74,7 +74,7 @@ namespace Meowv.Blog.Swagger
                 options.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, "Meowv.Blog.Domain.xml"));
                 options.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, "Meowv.Blog.Application.Contracts.xml"));
 
-                options.DocumentFilter<SwaggerDocumentFilter>();
+                
 
                 var security= new OpenApiSecurityScheme
                 {
@@ -85,11 +85,12 @@ namespace Meowv.Blog.Swagger
                 };
 
                 options.AddSecurityDefinition("oauth2",security);
-                options.AddSecurityRequirement(new OpenApiSecurityRequirement{{security,new List<string>(){ } } });
+                options.AddSecurityRequirement(new OpenApiSecurityRequirement{{security,new List<string>()} });
                 options.OperationFilter<AddResponseHeadersFilter>();
                 options.OperationFilter<AppendAuthorizeToSummaryOperationFilter>();
                 options.OperationFilter<SecurityRequirementsOperationFilter>();
 
+                options.DocumentFilter<SwaggerDocumentFilter>();
             });
         }
 

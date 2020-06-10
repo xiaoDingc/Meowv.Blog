@@ -2,7 +2,7 @@
 using Volo.Abp.Identity;
 using Volo.Abp.Modularity;
 
-namespace Meowv.Blog
+namespace Meowv.Blog.Application
 {
     [DependsOn(
         typeof(AbpIdentityApplicationModule)

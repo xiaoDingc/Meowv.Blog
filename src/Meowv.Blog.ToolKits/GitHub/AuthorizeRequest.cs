@@ -1,7 +1,5 @@
-﻿using Meowv.Blog.Configurations;
+﻿using Meowv.Blog.Domain.Configurations;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Meowv.Blog.ToolKits.GitHub
 {

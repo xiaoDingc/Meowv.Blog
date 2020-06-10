@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Meowv.Blog.Configurations
+﻿namespace Meowv.Blog.Domain.Configurations
 {
     public class GitHubConfig
     {
@@ -14,7 +10,7 @@ namespace Meowv.Blog.Configurations
         /// <summary>
         ///  POST请求，根据code得到access_token
         /// </summary>
-        public static string API_AcessToken="https://github.com/login/oauth/access_token";
+        public static string API_AccessToken="https://github.com/login/oauth/access_token";
 
         /// <summary>
         ///  GET请求，根据access_token得到用户信息
@@ -24,7 +20,7 @@ namespace Meowv.Blog.Configurations
          /// <summary>
         /// Github ID
         /// </summary>
-        public static int Id => AppSettings.GitHub.UserId;
+        public static int UserId = AppSettings.GitHub.UserId;
 
         /// <summary>
         /// Client ID

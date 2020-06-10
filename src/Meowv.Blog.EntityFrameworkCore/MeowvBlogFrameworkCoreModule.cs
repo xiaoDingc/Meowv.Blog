@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Meowv.Blog.Blog;
+﻿using Meowv.Blog.Domain.Configurations;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Volo.Abp.EntityFrameworkCore;
@@ -11,7 +8,7 @@ using Volo.Abp.EntityFrameworkCore.Sqlite;
 using Volo.Abp.EntityFrameworkCore.SqlServer;
 using Volo.Abp.Modularity;
 
-namespace Meowv.Blog
+namespace Meowv.Blog.EntityFrameworkCore
 {
     [DependsOn(
         typeof(MeowvBlogDomainModule),
