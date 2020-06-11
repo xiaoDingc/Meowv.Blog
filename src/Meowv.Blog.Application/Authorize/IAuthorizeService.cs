@@ -26,7 +26,7 @@ namespace Meowv.Blog.Application.Authorize
         /// </summary>
         /// <param name="access_token"></param>
         /// <returns></returns>
-        Task<ServiceResult<string>> GenerateToeknAsync(string access_token);
+        Task<ServiceResult<string>> GenerateTokenAsync(string access_token);
 
     }
 }

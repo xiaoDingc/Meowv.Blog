@@ -1,5 +1,6 @@
 ﻿using Meowv.Blog.Application.Authorize;
 using Meowv.Blog.ToolKits.Base;
+using Meowv.Blog.ToolKits.Extensions;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
@@ -29,6 +30,7 @@ namespace Meowv.Blog.HttpApi.Controllers
         [Route("url")]
         public async Task<ServiceResult<string>> GetLoginAddressAsync()
         {
+           
             return await _authorizeService.GetLoginAddressAsync();
         }
 
@@ -42,6 +44,18 @@ namespace Meowv.Blog.HttpApi.Controllers
         public async Task<ServiceResult<string>> GetAccessTokenAsync(string code)
         {
             return await _authorizeService.GetAccessTokenAsync(code);
+        }
+
+        /// <summary>
+        /// 登录成功，生成Token
+        /// </summary>
+        /// <param name="access_token"></param>
+        /// <returns></returns>
+        [HttpGet]
+        [Route("token")]
+       public async Task<ServiceResult<string>> GenerateTokenAsync(string access_token)
+        {
+            return await _authorizeService.GenerateTokenAsync(access_token);
         }
     }
 }
