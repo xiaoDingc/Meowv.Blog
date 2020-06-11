@@ -14,5 +14,6 @@ namespace Meowv.Blog.HttpApi.Hosting
         {
             app.InitializeApplication();
         }
+
     }
 }

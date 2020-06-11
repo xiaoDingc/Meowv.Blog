@@ -34,7 +34,7 @@ namespace Meowv.Blog.Application.Authorize.Impl
             var url = $"{GitHubConfig.API_User}?access_token={access_token}";
 
             using var client = _httpClient.CreateClient();
-            client.DefaultRequestHeaders.Add("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.14 Safari/537.36 Edg/83.0.478.13");
+            client.DefaultRequestHeaders.Add("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36");
 
             var httpResponse = await client.GetAsync(url);
 
