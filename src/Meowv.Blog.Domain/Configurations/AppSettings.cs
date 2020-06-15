@@ -52,5 +52,10 @@ namespace Meowv.Blog.Domain.Configurations
             public static int Expires => Convert.ToInt32(_config["JWT:Expires"]);
 
         }
+
+        public class Caching
+        {
+            public  static  string RedisConnectionString =>_config["Caching:RedisConnectionString"];
+        }
     }
 }
