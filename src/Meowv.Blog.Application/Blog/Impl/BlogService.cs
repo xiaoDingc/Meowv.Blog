@@ -40,13 +40,14 @@ namespace Meowv.Blog.Application.Blog.Impl
             }
 
 
-            post.Title = dto.Title;
-            post.Author = dto.Author;
-            post.Url = dto.Url;
-            post.Html = dto.Html;
-            post.Markdown = dto.Markdown;
-            post.CategoryId = dto.CategoryId;
-            post.CreationTime = dto.CreationTime;
+            //post.Title = dto.Title;
+            //post.Author = dto.Author;
+            //post.Url = dto.Url;
+            //post.Html = dto.Html;
+            //post.Markdown = dto.Markdown;
+            //post.CategoryId = dto.CategoryId;
+            //post.CreationTime = dto.CreationTime;
+            post=ObjectMapper.Map<PostDto,Post>(dto);
 
             await _postRepository.UpdateAsync(post);
             result.IsSuccess("修改成功");
@@ -65,16 +66,18 @@ namespace Meowv.Blog.Application.Blog.Impl
                 return result;
             }
 
-            var dto = new PostDto
-            {
-                Title = post.Title,
-                Author = post.Author,
-                Url = post.Url,
-                Html = post.Html,
-                Markdown = post.Markdown,
-                CategoryId = post.CategoryId,
-                CreationTime = post.CreationTime
-            };
+            //var dto = new PostDto
+            //{
+            //    Title = post.Title,
+            //    Author = post.Author,
+            //    Url = post.Url,
+            //    Html = post.Html,
+            //    Markdown = post.Markdown,
+            //    CategoryId = post.CategoryId,
+            //    CreationTime = post.CreationTime
+            //};
+           
+            var dto=ObjectMapper.Map<Post,PostDto>(post);
             result.IsSuccess(dto, "获取成功");
 
             return result;
@@ -83,16 +86,18 @@ namespace Meowv.Blog.Application.Blog.Impl
         public async Task<ServiceResult<string>> InsertPostAsync(PostDto dto)
         {
             var result = new ServiceResult<string>();
-            var entity = new Post
-            {
-                Title = dto.Title,
-                Author = dto.Author,
-                Url = dto.Url,
-                Html = dto.Html,
-                Markdown = dto.Markdown,
-                CategoryId = dto.CategoryId,
-                CreationTime = dto.CreationTime
-            };
+            //var entity = new Post
+            //{
+            //    Title = dto.Title,
+            //    Author = dto.Author,
+            //    Url = dto.Url,
+            //    Html = dto.Html,
+            //    Markdown = dto.Markdown,
+            //    CategoryId = dto.CategoryId,
+            //    CreationTime = dto.CreationTime
+            //};
+
+            var entity=ObjectMapper.Map<PostDto,Post>(dto);
             var post = await _postRepository.InsertAsync(entity);
             if (post == null)
             {

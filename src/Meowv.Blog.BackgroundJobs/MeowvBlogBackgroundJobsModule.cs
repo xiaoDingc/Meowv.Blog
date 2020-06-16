@@ -42,9 +42,9 @@ namespace Meowv.Blog.BackgroundJobs
                    {
                        new BasicAuthAuthorizationFilter(new BasicAuthAuthorizationFilterOptions
                        {
-                            RequireSsl = false,
-                            SslRedirect =false,
-                            LoginCaseSensitive=false,
+                            //RequireSsl = false,
+                            //SslRedirect =false,
+                            //LoginCaseSensitive=false,
                             Users=new []
                             {
                               new BasicAuthAuthorizationUser()

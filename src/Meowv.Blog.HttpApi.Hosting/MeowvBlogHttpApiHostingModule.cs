@@ -45,6 +45,11 @@ namespace Meowv.Blog.HttpApi.Hosting
                 options.Filters.Add(typeof(MeowvBlogExceptionFilter));
             });
 
+            context.Services.AddRouting(opt =>
+            {
+                opt.LowercaseUrls=true;
+                opt.AppendTrailingSlash=true;
+            });
             // 身份验证之JWT
             context.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
                    .AddJwtBearer(options =>
