@@ -53,7 +53,13 @@ namespace Meowv.Blog.Domain.Configurations
 
         }
 
-        public class Caching
+        public static class HangFire
+        {
+            public static string Login = _config["HangFire:Login"];
+            public static string Password = _config["HangFire:Password"];
+
+        }
+        public static class Caching
         {
             public  static  string RedisConnectionString =>_config["Caching:RedisConnectionString"];
         }

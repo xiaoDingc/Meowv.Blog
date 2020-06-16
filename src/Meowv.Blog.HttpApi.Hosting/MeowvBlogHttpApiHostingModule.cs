@@ -15,6 +15,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Tokens;
 using System;
 using System.Linq;
+using Meowv.Blog.BackgroundJobs;
 using Volo.Abp;
 using Volo.Abp.AspNetCore.Mvc;
 using Volo.Abp.AspNetCore.Mvc.ExceptionHandling;
@@ -29,7 +30,8 @@ namespace Meowv.Blog.HttpApi.Hosting
        typeof(AbpAutofacModule),
        typeof(MeowvBlogHttpApiModule),
        typeof(MeowvBlogSwaggerModule),
-       typeof(MeowvBlogFrameworkCoreModule)
+       typeof(MeowvBlogFrameworkCoreModule),
+       typeof(MeowvBlogBackgroundJobsModule)
     )]
     public class MeowvBlogHttpApiHostingModule : AbpModule
     {
@@ -89,7 +91,8 @@ namespace Meowv.Blog.HttpApi.Hosting
             // Http请求
             context.Services.AddHttpClient();
 
-            context.Services.AddTransient<IHostedService,HelloWorldJob>();
+            //.net Core 自带定时任务测试
+            //context.Services.AddTransient<IHostedService,HelloWorldJob>();
         }
 
         public override void OnApplicationInitialization(ApplicationInitializationContext context)
