@@ -1,4 +1,5 @@
-﻿using Meowv.Blog.Domain.Configurations;
+﻿using Meowv.Blog.Application.Caching.Authorize;
+using Meowv.Blog.Domain.Configurations;
 using Meowv.Blog.ToolKits.Base;
 using Meowv.Blog.ToolKits.Extensions;
 using Meowv.Blog.ToolKits.GitHub;
@@ -17,11 +18,14 @@ namespace Meowv.Blog.Application.Authorize.Impl
     public class AuthorizeService : MeowvBlogApplicationServiceBase, IAuthorizeService
     {
         private readonly IHttpClientFactory _httpClient;
+        private readonly IAuthorizeCacheService _authorizeCacheService;
 
-        public AuthorizeService(IHttpClientFactory httpClient)
+        public AuthorizeService(IHttpClientFactory httpClient, IAuthorizeCacheService authorizeCacheService)
         {
             _httpClient = httpClient;
+            _authorizeCacheService = authorizeCacheService;
         }
+
         public async Task<ServiceResult<string>> GenerateTokenAsync(string access_token)
         {
             var result = new ServiceResult<string>();
@@ -31,113 +35,125 @@ namespace Meowv.Blog.Application.Authorize.Impl
                 result.IsFailed("access_token 为空");
                 return result;
             }
-            var url = $"{GitHubConfig.API_User}?access_token={access_token}";
 
-            using var client = _httpClient.CreateClient();
-            client.DefaultRequestHeaders.Add("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36");
+            return await _authorizeCacheService.GenerateTokenAsync(access_token, async () =>
+           {
+               var url = $"{GitHubConfig.API_User}?access_token={access_token}";
 
-            var httpResponse = await client.GetAsync(url);
+               using var client = _httpClient.CreateClient();
+               client.DefaultRequestHeaders.Add("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36");
 
-            if (httpResponse.StatusCode != HttpStatusCode.OK)
-            {
-                result.IsFailed("access_token不正确");
-                return result;
-            }
+               var httpResponse = await client.GetAsync(url);
 
-            var content = await httpResponse.Content.ReadAsStringAsync();
+               if (httpResponse.StatusCode != HttpStatusCode.OK)
+               {
+                   result.IsFailed("access_token不正确");
+                   return result;
+               }
 
-            var user = content.FromJson<UserResponse>();
+               var content = await httpResponse.Content.ReadAsStringAsync();
 
-            if (user.IsNull())
-            {
-                result.IsFailed("未获取到用户数据");
-                return result;
-            }
+               var user = content.FromJson<UserResponse>();
 
-            if (user.Id != GitHubConfig.UserId)
-            {
-                result.IsFailed("当前账号未授权");
-                return result;
-            }
-            var claims = new[] {
+               if (user.IsNull())
+               {
+                   result.IsFailed("未获取到用户数据");
+                   return result;
+               }
+
+               if (user.Id != GitHubConfig.UserId)
+               {
+                   result.IsFailed("当前账号未授权");
+                   return result;
+               }
+               var claims = new[] {
                     new Claim(ClaimTypes.Name, user.Name),
                     new Claim(ClaimTypes.Email, user.Email),
                     new Claim(JwtRegisteredClaimNames.Exp, $"{new DateTimeOffset(DateTime.Now.AddMinutes(AppSettings.JWT.Expires)).ToUnixTimeSeconds()}"),
                     new Claim(JwtRegisteredClaimNames.Nbf, $"{new DateTimeOffset(DateTime.Now).ToUnixTimeSeconds()}")
-                };
+               };
 
-            var key = new SymmetricSecurityKey(AppSettings.JWT.SecurityKey.SerializeUtf8());
-            var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
+               var key = new SymmetricSecurityKey(AppSettings.JWT.SecurityKey.SerializeUtf8());
+               var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
 
-            var securityToken = new JwtSecurityToken(
-                issuer: AppSettings.JWT.Domain,
-                audience: AppSettings.JWT.Domain,
-                claims: claims,
-                expires: DateTime.Now.AddMinutes(AppSettings.JWT.Expires),
-                signingCredentials: creds);
+               var securityToken = new JwtSecurityToken(
+                    issuer: AppSettings.JWT.Domain,
+                    audience: AppSettings.JWT.Domain,
+                    claims: claims,
+                    expires: DateTime.Now.AddMinutes(AppSettings.JWT.Expires),
+                    signingCredentials: creds);
 
-            var token = new JwtSecurityTokenHandler().WriteToken(securityToken);
+               var token = new JwtSecurityTokenHandler().WriteToken(securityToken);
 
-            result.IsSuccess(token);
-            return await Task.FromResult(result);
+               result.IsSuccess(token);
+               return await Task.FromResult(result);
+           });
+
         }
 
         public async Task<ServiceResult<string>> GetAccessTokenAsync(string code)
         {
-            var result = new ServiceResult<string>();
+            return await _authorizeCacheService.GetAccessTokenAsync(code, async () =>
+           {
+               var result = new ServiceResult<string>();
 
-            if (string.IsNullOrEmpty(code))
-            {
-                result.IsFailed("code 为空!");
-                return result;
-            }
-            var request = new AccessTokenRequest();
+               if (string.IsNullOrEmpty(code))
+               {
+                   result.IsFailed("code 为空!");
+                   return result;
+               }
+               var request = new AccessTokenRequest();
 
-            var content = new StringContent($"code={code}&client_id={request.Client_ID}&redirect_uri={request.Redirect_Uri}&client_secret={request.Client_Secret}");
+               var content = new StringContent($"code={code}&client_id={request.Client_ID}&redirect_uri={request.Redirect_Uri}&client_secret={request.Client_Secret}");
 
-            content.Headers.ContentType = new MediaTypeHeaderValue("application/x-www-form-urlencoded");
+               content.Headers.ContentType = new MediaTypeHeaderValue("application/x-www-form-urlencoded");
 
-            using var client = _httpClient.CreateClient();
+               using var client = _httpClient.CreateClient();
 
-            var httpResponse = await client.PostAsync(GitHubConfig.API_AccessToken, content);
+               var httpResponse = await client.PostAsync(GitHubConfig.API_AccessToken, content);
 
-            var response = await httpResponse.Content.ReadAsStringAsync();
+               var response = await httpResponse.Content.ReadAsStringAsync();
 
-            if (response.StartsWith("access_token"))
-            {
-                result.IsSuccess(response.Split("=")[1].Split("&").First());
-            }
-            else
-            {
-                result.IsFailed("code不正确");
+               if (response.StartsWith("access_token"))
+               {
+                   result.IsSuccess(response.Split("=")[1].Split("&").First());
+               }
+               else
+               {
+                   result.IsFailed("code不正确");
 
-            }
+               }
 
-            return result;
+               return result;
+           });
+
+
         }
 
+        /// <summary>
+        /// 获取登录地址
+        /// </summary>
+        /// <returns></returns>
         public async Task<ServiceResult<string>> GetLoginAddressAsync()
         {
-            var result = new ServiceResult<string>();
-            var request = new AuthorizeRequest();
-
-            var address = string.Concat(new string[]
+            return await _authorizeCacheService.GetLoginAddressAsync(async () =>
             {
-                //GitHubConfig.API_Authorize,
-                //"?client_id=",request.Client_ID,
-                //"&scope=",request.Scope,
-                //"&state=",request.State,
-                //"redirect_uri=",request.Redirect_Uri
+                var result = new ServiceResult<string>();
+                var request = new AuthorizeRequest();
 
-                   GitHubConfig.API_Authorize,
+                var address = string.Concat(new string[]
+                  {
+                GitHubConfig.API_Authorize,
                     "?client_id=", request.Client_ID,
                     "&scope=", request.Scope,
                     "&state=", request.State,
                     "&redirect_uri=", request.Redirect_Uri
-            });
-            result.IsSuccess(address);
+              });
+                result.IsSuccess(address);
 
-            return await Task.FromResult(result);
+                return await Task.FromResult(result);
+            });
+
         }
     }
 }

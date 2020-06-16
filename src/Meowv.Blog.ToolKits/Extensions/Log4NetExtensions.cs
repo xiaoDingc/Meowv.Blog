@@ -13,8 +13,8 @@ namespace Meowv.Blog.ToolKits.Extensions
     {
         public static IHostBuilder UseLog4Net(this IHostBuilder hostBuilder)
         {
-            var log4netRepository = LogManager.GetRepository(Assembly.GetEntryAssembly());
-            XmlConfigurator.Configure(log4netRepository, new FileInfo("log4net.config"));
+            var log4NetRepository = LogManager.GetRepository(Assembly.GetEntryAssembly());
+            XmlConfigurator.Configure(log4NetRepository, new FileInfo("log4net.config"));
             return hostBuilder;
         }
     }
