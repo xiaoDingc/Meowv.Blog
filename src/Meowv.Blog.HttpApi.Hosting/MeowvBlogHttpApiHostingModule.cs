@@ -1,4 +1,5 @@
-﻿using Meowv.Blog.Domain.Configurations;
+﻿using Meowv.Blog.BackgroundJobs.Jobs;
+using Meowv.Blog.Domain.Configurations;
 using Meowv.Blog.EntityFrameworkCore;
 using Meowv.Blog.HttpApi.Hosting.Filters;
 using Meowv.Blog.HttpApi.Hosting.Middleware;
@@ -87,6 +88,8 @@ namespace Meowv.Blog.HttpApi.Hosting
 
             // Http请求
             context.Services.AddHttpClient();
+
+            context.Services.AddTransient<IHostedService,HelloWorldJob>();
         }
 
         public override void OnApplicationInitialization(ApplicationInitializationContext context)

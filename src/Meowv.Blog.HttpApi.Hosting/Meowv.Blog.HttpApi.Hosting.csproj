@@ -15,6 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Meowv.Blog.BackgroundJobs\Meowv.Blog.BackgroundJobs.csproj" />
     <ProjectReference Include="..\Meowv.Blog.EntityFrameworkCore\Meowv.Blog.EntityFrameworkCore.csproj" />
     <ProjectReference Include="..\Meowv.Blog.HttpApi\Meowv.Blog.HttpApi.csproj" />
     <ProjectReference Include="..\Meowv.Blog.Swagger\Meowv.Blog.Swagger.csproj" />
