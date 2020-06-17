@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using Meowv.Blog.Blog;
 using Meowv.Blog.Domain.Shared;
+using Meowv.Blog.Domain.Wallpaper;
 using Microsoft.EntityFrameworkCore;
 using Volo.Abp;
 using static Meowv.Blog.Domain.Shared.MeowvBlogDbConsts;
@@ -60,6 +61,18 @@ namespace Meowv.Blog
                 b.HasKey(x => x.Id);
                 b.Property(x => x.Title).HasMaxLength(20).IsRequired();
                 b.Property(x => x.LinkUrl).HasMaxLength(100).IsRequired();
+            });
+
+            moduleBuilder.Entity<WallPaper>(b =>
+            {
+                b.ToTable(MeowvBlogConsts.DbTablePrefix + DbTableName.WallPaper);
+                b.HasKey(x=>x.Id);
+                b.Property(x=>x.Id).ValueGeneratedOnAdd();
+                b.Property(x=>x.Url).HasMaxLength(200).IsRequired();
+                b.Property(x=>x.Title).HasMaxLength(150).IsRequired();
+                b.Property(x=>x.Type).HasColumnType("int").IsRequired();
+                b.Property(x => x.CreateTime).HasColumnType("datetime").IsRequired();
+
             });
         }
     }

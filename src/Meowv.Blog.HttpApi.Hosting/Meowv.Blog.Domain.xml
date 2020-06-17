@@ -178,5 +178,37 @@
             Application name
             </summary>
         </member>
+        <member name="P:Meowv.Blog.Domain.Wallpaper.WallPaper.Url">
+            <summary>
+            URL
+            </summary>
+        </member>
+        <member name="P:Meowv.Blog.Domain.Wallpaper.WallPaper.Title">
+            <summary>
+            标题
+            </summary>
+        </member>
+        <member name="P:Meowv.Blog.Domain.Wallpaper.WallPaper.Type">
+            <summary>
+            类型
+            </summary>
+        </member>
+        <member name="P:Meowv.Blog.Domain.Wallpaper.WallPaper.CreateTime">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="T:Meowv.Blog.Wallpaper.Repositories.IWallpaperRepository">
+            <summary>
+            IWallpaperRepository
+            </summary>
+        </member>
+        <member name="M:Meowv.Blog.Wallpaper.Repositories.IWallpaperRepository.BulkInsertAsync(System.Collections.Generic.IEnumerable{Meowv.Blog.Domain.Wallpaper.WallPaper})">
+            <summary>
+            批量插入
+            </summary>
+            <param name="wallpapers"></param>
+            <returns></returns>
+        </member>
     </members>
 </doc>

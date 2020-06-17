@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using Meowv.Blog.Blog;
+using Meowv.Blog.Domain.Wallpaper;
 using Microsoft.EntityFrameworkCore;
 using Volo.Abp.Data;
 using Volo.Abp.EntityFrameworkCore;
@@ -33,5 +34,8 @@ namespace Meowv.Blog
         public DbSet<PostTag> PostTags { get; set; }
 
         public DbSet<FriendLink> FriendLinks { get; set; }
+
+        public DbSet<WallPaper> WallPapers { get; set; }
+
     }
 }

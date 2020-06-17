@@ -44,5 +44,21 @@
             创建时间
             </summary>
         </member>
+        <member name="T:Meowv.Blog.Application.Contracts.Wallpaper.WallpaperJobItem`1">
+            <summary>
+            壁纸job
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="P:Meowv.Blog.Application.Contracts.Wallpaper.WallpaperJobItem`1.Result">
+            <summary>
+            <see cref="P:Meowv.Blog.Application.Contracts.Wallpaper.WallpaperJobItem`1.Result"/>
+            </summary>
+        </member>
+        <member name="P:Meowv.Blog.Application.Contracts.Wallpaper.WallpaperJobItem`1.Type">
+            <summary>
+             类型
+            </summary>
+        </member>
     </members>
 </doc>

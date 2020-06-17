@@ -4,14 +4,16 @@ using Meowv.Blog;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Meowv.Blog.Migrations
 {
     [DbContext(typeof(MeowvBlogMigrationsDbContext))]
-    partial class MeowvBlogMigrationsDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200617145219_更改壁纸表字段长度")]
+    partial class 更改壁纸表字段长度
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

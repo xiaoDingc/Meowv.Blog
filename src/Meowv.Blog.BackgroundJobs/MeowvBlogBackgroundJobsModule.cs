@@ -58,7 +58,8 @@ namespace Meowv.Blog.BackgroundJobs
                 DashboardTitle = "任务调度中心"
             });
             var service = context.ServiceProvider;
-            service.UseHangfireTest();
+            //service.UseHangfireTest();
+            service.UseWallpaperJob();
         }
     }
 }
