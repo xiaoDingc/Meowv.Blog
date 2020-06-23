@@ -19,6 +19,8 @@ namespace Meowv.Blog.Domain.Shared
             public const string Friendlinks = "Friendlinks";
 
             public const string WallPaper = "WallPaper";
+
+            public const string HotNews = "hotnews";
         }
     }
 }

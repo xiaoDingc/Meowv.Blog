@@ -198,6 +198,33 @@
             创建时间
             </summary>
         </member>
+        <member name="P:Meowv.Blog.HotNews.HotNews.Title">
+            <summary>
+            标题
+            </summary>
+        </member>
+        <member name="P:Meowv.Blog.HotNews.HotNews.Url">
+            <summary>
+            链接
+            </summary>
+        </member>
+        <member name="P:Meowv.Blog.HotNews.HotNews.SourceId">
+            <summary>
+            SourceId
+            </summary>
+        </member>
+        <member name="P:Meowv.Blog.HotNews.HotNews.CreateTime">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="M:Meowv.Blog.HotNews.Repositories.IHotNewsRepository.BulkInsertAsync(System.Collections.Generic.IEnumerable{Meowv.Blog.HotNews.HotNews})">
+            <summary>
+            批量插入
+            </summary>
+            <param name="hotNewses"></param>
+            <returns></returns>
+        </member>
         <member name="T:Meowv.Blog.Wallpaper.Repositories.IWallpaperRepository">
             <summary>
             IWallpaperRepository

@@ -60,6 +60,7 @@ namespace Meowv.Blog.BackgroundJobs
             var service = context.ServiceProvider;
             //service.UseHangfireTest();
             service.UseWallpaperJob();
+            service.UseHotNewsJob();
         }
     }
 }

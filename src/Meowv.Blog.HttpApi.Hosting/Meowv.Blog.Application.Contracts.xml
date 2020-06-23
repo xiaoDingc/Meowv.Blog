@@ -44,6 +44,16 @@
             创建时间
             </summary>
         </member>
+        <member name="P:Meowv.Blog.Application.Contracts.HotNews.HotNewsJobItem`1.Result">
+            <summary>
+            泛型结果
+            </summary>
+        </member>
+        <member name="P:Meowv.Blog.Application.Contracts.HotNews.HotNewsJobItem`1.Source">
+            <summary>
+             来源
+            </summary>
+        </member>
         <member name="T:Meowv.Blog.Application.Contracts.Wallpaper.WallpaperJobItem`1">
             <summary>
             壁纸job

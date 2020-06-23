@@ -37,5 +37,7 @@ namespace Meowv.Blog
 
         public DbSet<WallPaper> WallPapers { get; set; }
 
+        public DbSet<HotNews.HotNews> HotNewses { get; set; }
+
     }
 }

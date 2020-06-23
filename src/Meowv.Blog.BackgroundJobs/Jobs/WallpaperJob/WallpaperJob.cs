@@ -90,13 +90,7 @@ namespace Meowv.Blog.BackgroundJobs.Jobs.WallpaperJob
             {
                 await _wallpaperRepository.BulkInsertAsync(wallpapers);
             }
-        
-
-            //var message=new MineMessage
-            //{
-
-            //}
-
+            
         }
     }
 }
