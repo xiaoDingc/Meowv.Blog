@@ -138,6 +138,46 @@
             GitHub
             </summary>
         </member>
+        <member name="P:Meowv.Blog.Domain.Configurations.AppSettings.Email.Host">
+            <summary>
+            Host
+            </summary>
+        </member>
+        <member name="P:Meowv.Blog.Domain.Configurations.AppSettings.Email.Port">
+            <summary>
+            Port
+            </summary>
+        </member>
+        <member name="P:Meowv.Blog.Domain.Configurations.AppSettings.Email.UseSsl">
+            <summary>
+            UseSsl
+            </summary>
+        </member>
+        <member name="T:Meowv.Blog.Domain.Configurations.AppSettings.Email.From">
+            <summary>
+            From
+            </summary>
+        </member>
+        <member name="P:Meowv.Blog.Domain.Configurations.AppSettings.Email.From.Username">
+            <summary>
+            Username
+            </summary>
+        </member>
+        <member name="P:Meowv.Blog.Domain.Configurations.AppSettings.Email.From.Password">
+            <summary>
+            Password
+            </summary>
+        </member>
+        <member name="P:Meowv.Blog.Domain.Configurations.AppSettings.Email.From.Name">
+            <summary>
+            Name
+            </summary>
+        </member>
+        <member name="P:Meowv.Blog.Domain.Configurations.AppSettings.Email.From.Address">
+            <summary>
+            Address
+            </summary>
+        </member>
         <member name="F:Meowv.Blog.Domain.Configurations.GitHubConfig.API_Authorize">
             <summary>
             Get请求,跳转GitHub登录界面，获取用户授权，得到code

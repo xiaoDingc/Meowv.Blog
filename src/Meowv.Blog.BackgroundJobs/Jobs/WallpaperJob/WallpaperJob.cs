@@ -9,19 +9,21 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Meowv.Blog.ToolKits.Helper;
+using MimeKit;
 
 namespace Meowv.Blog.BackgroundJobs.Jobs.WallpaperJob
 {
     public class WallpaperJob : IBackgroundJob
     {
-         private readonly IWallpaperRepository _wallpaperRepository;
+        private readonly IWallpaperRepository _wallpaperRepository;
         public WallpaperJob(IWallpaperRepository wallpaperRepository)
         {
             _wallpaperRepository = wallpaperRepository;
         }
         public async Task ExecuteAsync()
         {
-            var wallpaperUrls =new List<WallpaperJobItem<string>>()
+            var wallpaperUrls = new List<WallpaperJobItem<string>>()
             {
                 new WallpaperJobItem<string> { Result = "https://www.i4.cn/wper_4_19_1_1.html", Type = WallpaperEnum.Beauty },
                 new WallpaperJobItem<string> { Result = "https://www.i4.cn/wper_4_19_58_1.html", Type = WallpaperEnum.Sportsman },
@@ -44,27 +46,28 @@ namespace Meowv.Blog.BackgroundJobs.Jobs.WallpaperJob
                 new WallpaperJobItem<string> { Result = "https://www.i4.cn/wper_4_19_12_1.html", Type = WallpaperEnum.Apple },
                 new WallpaperJobItem<string> { Result = "https://www.i4.cn/wper_4_19_7_1.html", Type = WallpaperEnum.Other }
             };
-            var web=new HtmlWeb();
+            var web = new HtmlWeb();
 
-            var list_task=new List<Task<WallpaperJobItem<HtmlDocument>>>();
+            var list_task = new List<Task<WallpaperJobItem<HtmlDocument>>>();
 
-            wallpaperUrls.ForEach(item=>{
+            wallpaperUrls.ForEach(item =>
+            {
 
-                var task=Task.Run(async () =>
-                {
-                    var htmlDoc=await web.LoadFromWebAsync(item.Result);
-                    return new WallpaperJobItem<HtmlDocument>
-                    {
-                        Result=htmlDoc,
-                        Type=item.Type
-                    };
-                });
-                    list_task.Add(task);
-                });
+                var task = Task.Run(async () =>
+                  {
+                      var htmlDoc = await web.LoadFromWebAsync(item.Result);
+                      return new WallpaperJobItem<HtmlDocument>
+                      {
+                          Result = htmlDoc,
+                          Type = item.Type
+                      };
+                  });
+                list_task.Add(task);
+            });
             //等待所有任务完成
             Task.WaitAll(list_task.ToArray());
 
-            var wallpapers=new List<WallPaper>();
+            var wallpapers = new List<WallPaper>();
             foreach (var list in list_task)
             {
                 var item = await list;
@@ -82,15 +85,25 @@ namespace Meowv.Blog.BackgroundJobs.Jobs.WallpaperJob
                 });
             }
 
-            var urls=(await _wallpaperRepository.GetListAsync()).Select(x=>x.Url);
+            var urls = (await _wallpaperRepository.GetListAsync()).Select(x => x.Url);
 
-            wallpapers=wallpapers.Where(x=>!urls.Contains(x.Url)).ToList();
+            wallpapers = wallpapers.Where(x => !urls.Contains(x.Url)).ToList();
 
             if (wallpapers.Any())
             {
                 await _wallpaperRepository.BulkInsertAsync(wallpapers);
             }
-            
+
+            // 发送Email
+            var message = new MimeMessage
+            {
+                Subject = "【定时任务】壁纸数据抓取任务推送",
+                Body = new BodyBuilder
+                {
+                    HtmlBody = $"本次抓取到{wallpapers.Count()}条数据，时间:{DateTime.Now:yyyy-MM-dd HH:mm:ss}"
+                }.ToMessageBody()
+            };
+            await EmailHelper.SendEmailAsync(message);
         }
     }
 }

@@ -4,6 +4,7 @@ using System.Text;
 using Hangfire;
 using Microsoft.Extensions.DependencyInjection;
 using Meowv.Blog.BackgroundJobs.Hangfire;
+using Meowv.Blog.BackgroundJobs.Jobs;
 using Meowv.Blog.BackgroundJobs.Jobs.HotNews;
 using Meowv.Blog.BackgroundJobs.Jobs.WallpaperJob;
 
@@ -29,5 +30,10 @@ namespace Meowv.Blog.BackgroundJobs
             RecurringJob.AddOrUpdate("每日热点数据抓取", () => job.ExecuteAsync(), CronType.Hour(1, 2));
         }
 
+          public static void UsePuppeteerTest(this IServiceProvider service)
+        {
+            var job = service.GetService<PuppeteerTestJob>();
+            RecurringJob.AddOrUpdate("每日网页抓取", () => job.ExecuteAsync(), CronType.Hour(1, 2));
+        }
     }
 }

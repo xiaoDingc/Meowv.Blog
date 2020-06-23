@@ -20,11 +20,12 @@ namespace Meowv.Blog.BackgroundJobs
         {
             context.Services.AddHangfire(config =>
             {
+                
                 config.UseStorage(
                     new SqlServerStorage(AppSettings.ConnectionStrings,
                         new SqlServerStorageOptions
                         {
-                            SchemaName = MeowvBlogConsts.DbTablePrefix + "hangfire"
+                            SchemaName = MeowvBlogConsts.DbTablePrefix + "hangfire",
                         })
                     );
             });
@@ -61,6 +62,7 @@ namespace Meowv.Blog.BackgroundJobs
             //service.UseHangfireTest();
             service.UseWallpaperJob();
             service.UseHotNewsJob();
+            service.UsePuppeteerTest();
         }
     }
 }
