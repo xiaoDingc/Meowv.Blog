@@ -4,20 +4,33 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
+using Meowv.Blog.Application.Caching.Blog;
 using Meowv.Blog.Blog;
 using Meowv.Blog.Blog.Repositories;
 using Meowv.Blog.ToolKits.Base;
+using Meowv.Blog.ToolKits.Base.Paged;
 
 namespace Meowv.Blog.Application.Blog.Impl
 {
-    public class BlogService : MeowvBlogApplicationServiceBase, IBlogService
+    public partial class BlogService : MeowvBlogApplicationServiceBase, IBlogService
     {
+        private readonly IBlogCacheService _blogCacheService;
         private readonly IPostRepository _postRepository;
+        private readonly ICategoryRepository _categoryRepository;
+        private readonly ITagRepository _tagRepository;
+        private readonly IPostTagRepository _postTagRepository;
+        private readonly IFriendLinkRepository _friendLinksRepository;
 
-        public BlogService(IPostRepository postRepository)
+        public BlogService(IBlogCacheService blogCacheService, IPostRepository postRepository, ICategoryRepository categoryRepository, ITagRepository tagRepository, IPostTagRepository postTagRepository, IFriendLinkRepository friendLinksRepository)
         {
+            _blogCacheService = blogCacheService;
             _postRepository = postRepository;
+            _categoryRepository = categoryRepository;
+            _tagRepository = tagRepository;
+            _postTagRepository = postTagRepository;
+            _friendLinksRepository = friendLinksRepository;
         }
+
         public async Task<ServiceResult> DeletePostAsync(int id)
         {
             var result = new ServiceResult();
@@ -47,7 +60,7 @@ namespace Meowv.Blog.Application.Blog.Impl
             //post.Markdown = dto.Markdown;
             //post.CategoryId = dto.CategoryId;
             //post.CreationTime = dto.CreationTime;
-            post=ObjectMapper.Map<PostDto,Post>(dto);
+            post = ObjectMapper.Map<PostDto, Post>(dto);
 
             await _postRepository.UpdateAsync(post);
             result.IsSuccess("修改成功");
@@ -76,8 +89,8 @@ namespace Meowv.Blog.Application.Blog.Impl
             //    CategoryId = post.CategoryId,
             //    CreationTime = post.CreationTime
             //};
-           
-            var dto=ObjectMapper.Map<Post,PostDto>(post);
+
+            var dto = ObjectMapper.Map<Post, PostDto>(post);
             result.IsSuccess(dto, "获取成功");
 
             return result;
@@ -97,7 +110,7 @@ namespace Meowv.Blog.Application.Blog.Impl
             //    CreationTime = dto.CreationTime
             //};
 
-            var entity=ObjectMapper.Map<PostDto,Post>(dto);
+            var entity = ObjectMapper.Map<PostDto, Post>(dto);
             var post = await _postRepository.InsertAsync(entity);
             if (post == null)
             {
@@ -109,5 +122,6 @@ namespace Meowv.Blog.Application.Blog.Impl
             return result;
         }
 
+       
     }
 }
