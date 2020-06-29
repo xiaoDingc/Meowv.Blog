@@ -18,6 +18,6 @@ namespace Meowv.Blog.Application.Blog
         /// 查询分类列表
         /// </summary>
         /// <returns></returns>
-       // Task<ServiceResult<IEnumerable<QueryCategoryDto>>> QueryCategoriesAsync();
+        Task<ServiceResult<IEnumerable<QueryCategoryDto>>> QueryCategoriesAsync();
     }
 }
