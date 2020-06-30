@@ -90,5 +90,16 @@ namespace Meowv.Blog.HttpApi.Controllers
         {
             return await _blogService.QueryPostsByTagAsync(name);
         }
+
+        /// <summary>
+        /// 查询友链列表
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet]
+        [Route("friendlinks")]
+        public async Task<ServiceResult<IEnumerable<FriendLinkDto>>> QueryFriendLinksAsync()
+        {
+            return await _blogService.QueryFriendLinksAsync();
+        }
     }
 }

@@ -57,5 +57,11 @@
             <param name="name"></param>
             <returns></returns>
         </member>
+        <member name="M:Meowv.Blog.HttpApi.Controllers.BlogController.QueryFriendLinksAsync">
+            <summary>
+            查询友链列表
+            </summary>
+            <returns></returns>
+        </member>
     </members>
 </doc>

@@ -14,6 +14,16 @@
             展示名称
             </summary>
         </member>
+        <member name="P:Meowv.Blog.Application.Contracts.Blog.FriendLinkDto.Title">
+            <summary>
+            标题
+            </summary>
+        </member>
+        <member name="P:Meowv.Blog.Application.Contracts.Blog.FriendLinkDto.LinkUrl">
+            <summary>
+            链接
+            </summary>
+        </member>
         <member name="T:Meowv.Blog.Application.Contracts.Blog.PagingInput">
             <summary>
             分页输入参数
