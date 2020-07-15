@@ -14,6 +14,16 @@
             展示名称
             </summary>
         </member>
+        <member name="P:Meowv.Blog.Application.Contracts.Blog.FriendLinkDto.Title">
+            <summary>
+            标题
+            </summary>
+        </member>
+        <member name="P:Meowv.Blog.Application.Contracts.Blog.FriendLinkDto.LinkUrl">
+            <summary>
+            链接
+            </summary>
+        </member>
         <member name="T:Meowv.Blog.Application.Contracts.Blog.PagingInput">
             <summary>
             分页输入参数
@@ -149,6 +159,11 @@
             链接
             </summary>
         </member>
+        <member name="P:Meowv.Blog.Application.Contracts.Blog.QueryCategoryDto.Count">
+            <summary>
+            总数
+            </summary>
+        </member>
         <member name="P:Meowv.Blog.Application.Contracts.Blog.QueryPostDto.Year">
             <summary>
             年份
@@ -157,6 +172,11 @@
         <member name="P:Meowv.Blog.Application.Contracts.Blog.QueryPostDto.PostDtos">
             <summary>
             Posts
+            </summary>
+        </member>
+        <member name="P:Meowv.Blog.Application.Contracts.Blog.QueryTagDto.Count">
+            <summary>
+            数量
             </summary>
         </member>
         <member name="P:Meowv.Blog.Application.Contracts.Blog.TagDto.TagName">
