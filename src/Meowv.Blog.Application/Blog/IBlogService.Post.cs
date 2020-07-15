@@ -35,6 +35,8 @@ namespace Meowv.Blog.Application.Blog
         /// </summary>
         /// <param name="name"></param>
         /// <returns></returns>
-      //  Task<ServiceResult<IEnumerable<QueryPostDto>>> QueryPostsByCategoryAsync(string name);
+        //  Task<ServiceResult<IEnumerable<QueryPostDto>>> QueryPostsByCategoryAsync(string name);
+
+        Task<ServiceResult<PagedList<QueryPostForAdminDto>>> QueryPostsForAdminAsync(PagingInput input);
     }
 }

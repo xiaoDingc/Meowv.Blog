@@ -32,7 +32,7 @@ namespace Meowv.Blog.HttpApi.Controllers
         /// <returns></returns>
         [HttpGet]
         [Route("posts")]
-        public async Task<ServiceResult<PagedList<QueryPostDto>>> QueryPostsAsync([FromQuery]PagingInput input)
+        public async Task<ServiceResult<PagedList<QueryPostDto>>> QueryPostsAsync([FromQuery] PagingInput input)
         {
             return await _blogService.QueryPostsAsync(input);
         }
@@ -101,5 +101,14 @@ namespace Meowv.Blog.HttpApi.Controllers
         {
             return await _blogService.QueryFriendLinksAsync();
         }
+
+
+        public async Task<ServiceResult<PagedList<QueryPostForAdminDto>>> QueryPostsForAdminAsync(
+            [FromQuery] PagingInput input)
+        {
+            return await _blogService.QueryPostsForAdminAsync(input);
+        }
+
     }
+
 }
