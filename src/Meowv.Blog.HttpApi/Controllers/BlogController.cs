@@ -102,7 +102,10 @@ namespace Meowv.Blog.HttpApi.Controllers
             return await _blogService.QueryFriendLinksAsync();
         }
 
-
+        [HttpGet]
+        [AuthorizeAttribute]
+        [Route("admin/posts")]
+        [ApiExplorerSettings(GroupName = Grouping.GroupName_v2)]
         public async Task<ServiceResult<PagedList<QueryPostForAdminDto>>> QueryPostsForAdminAsync(
             [FromQuery] PagingInput input)
         {
