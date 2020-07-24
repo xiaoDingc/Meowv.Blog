@@ -15,7 +15,7 @@ namespace Meowv.Blog.HttpApi.Controllers
     [ApiController]
     [Route("[controller]")]
     [ApiExplorerSettings(GroupName = Grouping.GroupName_v1)]
-    public class BlogController : AbpController
+    public partial class BlogController : AbpController
     {
         private readonly IBlogService _blogService;
 
@@ -102,15 +102,6 @@ namespace Meowv.Blog.HttpApi.Controllers
             return await _blogService.QueryFriendLinksAsync();
         }
 
-        [HttpGet]
-        [AuthorizeAttribute]
-        [Route("admin/posts")]
-        [ApiExplorerSettings(GroupName = Grouping.GroupName_v2)]
-        public async Task<ServiceResult<PagedList<QueryPostForAdminDto>>> QueryPostsForAdminAsync(
-            [FromQuery] PagingInput input)
-        {
-            return await _blogService.QueryPostsForAdminAsync(input);
-        }
 
     }
 

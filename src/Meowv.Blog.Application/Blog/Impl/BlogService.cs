@@ -31,14 +31,14 @@ namespace Meowv.Blog.Application.Blog.Impl
             _friendLinksRepository = friendLinksRepository;
         }
 
-        public async Task<ServiceResult> DeletePostAsync(int id)
-        {
-            var result = new ServiceResult();
-
-            await _postRepository.DeleteAsync(id);
-
-            return result;
-        }
+        // public async Task<ServiceResult> DeletePostAsync(int id)
+        // {
+        //     var result = new ServiceResult();
+        //
+        //     await _postRepository.DeleteAsync(id);
+        //
+        //     return result;
+        // }
 
         public async Task<ServiceResult<string>> UpdatePostAsync(int id, PostDto dto)
         {
@@ -122,6 +122,6 @@ namespace Meowv.Blog.Application.Blog.Impl
             return result;
         }
 
-       
+
     }
 }

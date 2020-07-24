@@ -39,6 +39,16 @@
             限制条数
             </summary>
         </member>
+        <member name="T:Meowv.Blog.Application.Contracts.Blog.Params.EditPostInput">
+            <summary>
+            新增和更新文章的通用输出参数模型
+            </summary>
+        </member>
+        <member name="P:Meowv.Blog.Application.Contracts.Blog.Params.EditPostInput.Tags">
+            <summary>
+            标签列表
+            </summary>
+        </member>
         <member name="P:Meowv.Blog.Application.Contracts.Blog.PostBriefDto.Title">
             <summary>
             标题
@@ -57,6 +67,11 @@
         <member name="P:Meowv.Blog.Application.Contracts.Blog.PostBriefDto.CreationTime">
             <summary>
             创建时间
+            </summary>
+        </member>
+        <member name="P:Meowv.Blog.Application.Contracts.Blog.PostBriefForAdminDto.Id">
+            <summary>
+            主键
             </summary>
         </member>
         <member name="P:Meowv.Blog.Application.Contracts.Blog.PostDetailDto.Title">
@@ -170,6 +185,11 @@
             </summary>
         </member>
         <member name="P:Meowv.Blog.Application.Contracts.Blog.QueryPostDto.PostDtos">
+            <summary>
+            Posts
+            </summary>
+        </member>
+        <member name="P:Meowv.Blog.Application.Contracts.Blog.QueryPostForAdminDto.Posts">
             <summary>
             Posts
             </summary>
