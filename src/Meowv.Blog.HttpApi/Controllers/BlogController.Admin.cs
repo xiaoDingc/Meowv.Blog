@@ -18,20 +18,19 @@ namespace Meowv.Blog.HttpApi.Controllers
     {
 
         #region Posts
-        // /// <summary>
-        // /// 获取文章详情
-        // /// </summary>
-        // /// <param name="id"></param>
-        // /// <returns></returns>
-        // [HttpGet]
-        // [Authorize]
-        // [Route("admin/post")]
-        // [Route("post/admin")]
-        // [ApiExplorerSettings(GroupName = Grouping.GroupName_v2)]
-        // public async Task<ServiceResult<PostForAdminDto>> GetPostForAdminAsync([Required] int id)
-        // {
-        //     return await _blogService.GetPostForAdminAsync(id);
-        // }
+        /// <summary>
+        /// 获取文章详情
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        [HttpGet]
+        [Authorize]
+        [Route("admin/post")]
+        [ApiExplorerSettings(GroupName = Grouping.GroupName_v2)]
+        public async Task<ServiceResult<PostForAdminDto>> GetPostForAdminAsync([Required] int id)
+        {
+            return await _blogService.GetPostForAdminAsync(id);
+        }
 
         /// <summary>
         /// 分页查询文章列表

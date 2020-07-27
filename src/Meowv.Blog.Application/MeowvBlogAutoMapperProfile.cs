@@ -16,6 +16,9 @@ namespace Meowv.Blog.Application
             CreateMap<PostDto, Post>().ForMember(x => x.Id, opt => opt.Ignore());
             CreateMap<FriendLink, FriendLinkDto>();
             CreateMap<EditPostInput, Post>().ForMember(x => x.Id, opt => opt.Ignore());
+
+            CreateMap<Post, PostForAdminDto>().ForMember(x => x.Tags, opt => opt.Ignore());
+
         }
     }
 }

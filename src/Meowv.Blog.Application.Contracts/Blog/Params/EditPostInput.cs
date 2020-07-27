@@ -7,11 +7,8 @@ namespace Meowv.Blog.Application.Contracts.Blog.Params
     /// <summary>
     /// 新增和更新文章的通用输出参数模型
     /// </summary>
-    public class EditPostInput : PostDto
+    public class EditPostInput : PostForAdminDto
     {
-        /// <summary>
-        /// 标签列表
-        /// </summary>
-        public IEnumerable<string> Tags { get; set; }
+
     }
 }
