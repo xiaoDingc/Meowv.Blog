@@ -9,6 +9,7 @@ using Volo.Abp.EntityFrameworkCore;
 
 namespace Meowv.Blog
 {
+    //[ConnectionStringName("MySql")]
     [ConnectionStringName("SqlServer")]
     public class MeowvBlogDbContext : AbpDbContext<MeowvBlogDbContext>
     {

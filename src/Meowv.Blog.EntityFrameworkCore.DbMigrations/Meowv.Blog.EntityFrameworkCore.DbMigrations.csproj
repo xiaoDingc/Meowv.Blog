@@ -7,7 +7,19 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Migrations\**" />
+    <EmbeddedResource Remove="Migrations\**" />
+    <None Remove="Migrations\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Remove="appsettings.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Include="Migrations\20201009083508_initial.cs" />
+    <Compile Include="Migrations\20201009083508_initial.Designer.cs" />
+    <Compile Include="Migrations\MeowvBlogMigrationsDbContextModelSnapshot.cs" />
   </ItemGroup>
 
   <ItemGroup>
